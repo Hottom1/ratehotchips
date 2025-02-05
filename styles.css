@@ -98,3 +98,17 @@ th {
     min-width: 120px; /* Ensure cells don’t get too narrow */
   }
 }
+/* Add this to your existing CSS */
+.remove-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}

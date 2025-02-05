@@ -11,7 +11,7 @@ function renderRatings() {
   const tbody = document.querySelector('#ratingsTable tbody');
   tbody.innerHTML = ratings
     .map(
-      (rating) => `
+      (rating, index) => `
       <tr>
         <td>${rating.brand}</td>
         <td>${rating.crispiness}</td>
@@ -20,16 +20,18 @@ function renderRatings() {
         <td>${rating.temperature}</td>
         <td>${rating.appearance}</td>
         <td>${rating.overall}</td>
+        <td><button class="remove-button" data-index="${index}">Remove</button></td>
       </tr>
     `
     )
     .join('');
 }
 
-// Function to sort ratings
-function sortRatings(criteria) {
-  ratings.sort((a, b) => b[criteria] - a[criteria]);
-  renderRatings();
+// Function to remove a rating
+function removeRating(index) {
+  ratings.splice(index, 1); // Remove the rating at the specified index
+  localStorage.setItem('hotChipRatings', JSON.stringify(ratings)); // Update localStorage
+  renderRatings(); // Re-render the table
 }
 
 // Handle form submission
@@ -127,6 +129,14 @@ document.getElementById('importFile').addEventListener('change', (e) => {
       }
     };
     reader.readAsText(file);
+  }
+});
+
+// Handle remove button clicks
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('remove-button')) {
+    const index = e.target.getAttribute('data-index');
+    removeRating(index);
   }
 });
 
