@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate Hot Chips</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Rate Hot Chips 🍟</h1>
+    <form id="ratingForm">
+      <label for="brand">Brand/Restaurant Name:</label>
+      <input type="text" id="brand" required>
+
+      <label for="crispiness">Crispiness (1-10):</label>
+      <input type="number" id="crispiness" min="1" max="10" required>
+
+      <label for="flavor">Flavor (1-10):</label>
+      <input type="number" id="flavor" min="1" max="10" required>
+
+      <label for="texture">Texture (1-10):</label>
+      <input type="number" id="texture" min="1" max="10" required>
+
+      <label for="temperature">Temperature (1-10):</label>
+      <input type="number" id="temperature" min="1" max="10" required>
+
+      <label for="appearance">Appearance (1-10):</label>
+      <input type="number" id="appearance" min="1" max="10" required>
+
+      <button type="submit">Submit Rating</button>
+    </form>
+
+    <h2>Ratings List</h2>
+    <div class="controls">
+      <label for="sortBy">Sort By:</label>
+      <select id="sortBy">
+        <option value="overall">Overall</option>
+        <option value="crispiness">Crispiness</option>
+        <option value="flavor">Flavor</option>
+        <option value="texture">Texture</option>
+        <option value="temperature">Temperature</option>
+        <option value="appearance">Appearance</option>
+      </select>
+      <button id="exportButton">Export Ratings (CSV)</button>
+      <input type="file" id="importFile" accept=".json" style="display: none;">
+      <button id="importButton">Import Ratings (JSON)</button>
+    </div>
+    <table id="ratingsTable">
+      <thead>
+        <tr>
+          <th>Brand/Restaurant</th>
+          <th>Crispiness</th>
+          <th>Flavor</th>
+          <th>Texture</th>
+          <th>Temperature</th>
+          <th>Appearance</th>
+          <th>Overall</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Ratings will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
