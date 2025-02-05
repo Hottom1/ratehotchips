@@ -1,3 +1,4 @@
+/* Existing CSS (no changes) */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
@@ -70,4 +71,30 @@ th, td {
 
 th {
   background-color: #f2f2f2;
+}
+
+/* Responsive CSS for Mobile */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  th, td {
+    min-width: 120px; /* Ensure cells don’t get too narrow */
+  }
 }
